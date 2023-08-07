@@ -35,8 +35,6 @@ export default defineNuxtConfig({
     // Auto import components: https://go.nuxtjs.dev/config-components
     components: true,
   
-
-  
     // Modules: https://go.nuxtjs.dev/config-modules
     modules: [
       '@pinia/nuxt',
@@ -44,8 +42,6 @@ export default defineNuxtConfig({
   
     // Build Configuration: https://go.nuxtjs.dev/config-build
     build: {
-    }
+    },
 
-
-  
 })
