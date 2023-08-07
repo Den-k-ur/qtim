@@ -533,6 +533,23 @@ a:active,a:focus {
 	overflow:hidden;
 	text-align:center;
 }
+
+.pagination .paginationButton {
+	padding:5px 10px;
+	margin-right:2px;
+	background:#ccc;
+	color:#fff;
+	text-decoration:blink;
+}
+
+.paginationButton:hover, .current {
+	padding:5px 10px;
+	margin-right:2px;
+	background:#ffd700;
+	cursor: pointer;
+	color:#fff;
+}
+
 .pagination a {
 	padding:5px 10px;
 	margin-right:2px;
