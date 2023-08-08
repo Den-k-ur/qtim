@@ -19,8 +19,8 @@
                             <li><NuxtLink to="#">Pages</NuxtLink>
                             <ul class="sub-menu">
                                 <li><NuxtLink to="/portfolio-item">Portfolio Item</NuxtLink></li>
-                                <li><NuxtLink to="/blog-single">Blog Article</NuxtLink></li>
-                                <li><NuxtLink to="/shop-single">Shop Item</NuxtLink></li>
+                                <li><NuxtLink to="/blog/1">Blog Article</NuxtLink></li>
+                                <li><NuxtLink to="/shop/shop-single">Shop Item</NuxtLink></li>
                                 <li><NuxtLink to="/portfolio-category">Portfolio Category</NuxtLink></li>
                             </ul>
                             </li>
