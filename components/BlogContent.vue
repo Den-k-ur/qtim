@@ -146,18 +146,18 @@
         </div>
         <!-- #content -->
         <nav class="pagination">
-            <span>
+            <span class="paginationButton" @click="store.decrementPage">
                &lt;&lt; prev
             </span>
-            <span v-for="page in maxPages">
-                <span class="current" v-if="page === store.p" :key="page">
+            <span v-for="page in maxPages" :key="page">
+                <span class="current" v-if="page === store.p">
                     {{ page }}
                 </span>
                 <span class="paginationButton" v-else @click="setCurrentPageAndRefresh(page)">
                     {{ page }}
                 </span>
             </span>
-            <span>
+            <span class="paginationButton" @click="store.incrementPage">
                 Next >>
             </span>
         </nav>
@@ -178,21 +178,19 @@
 <script setup lang="ts">
     import { postDTO } from 'models/post.dto';
     import { usePostsStore } from '../store/posts';
-    import { storeToRefs } from 'pinia'
+    import { storeToRefs } from 'pinia';
 
 
     const store = usePostsStore();
     const {p} = storeToRefs(store);
 
 
-
-    const currentPage = p
-    
-    console.log(currentPage.value)
+    const router = useRouter();
+    const currentPage = p;
         
-    const allPagePosts = await $fetch(`https://6082e3545dbd2c001757abf5.mockapi.io/qtim-test-work/posts`)
-    store.calculateMaxPages(allPagePosts as postDTO[], 10)
-    const maxPages = store.maxPages
+    const allPagePosts = await $fetch(`https://6082e3545dbd2c001757abf5.mockapi.io/qtim-test-work/posts`);
+    store.calculateMaxPages(allPagePosts as postDTO[], 10);
+    const maxPages = store.maxPages;
        
 
 
@@ -202,18 +200,15 @@
         l: 10
     }}),
     {watch: [currentPage]}
-    )
+    );
 
-    watch(data, (datav) => {store.posts = datav as postDTO[]; console.log(store.posts)})
-    store.posts = data.value as postDTO[] 
-    
-    console.log(p.value)
+    watch(data, (datav) => {store.posts = datav as postDTO[]; router.push('#masthead')});
+    store.posts = data.value as postDTO[] ;
     
     
     const setCurrentPageAndRefresh = (page: number) => {
         store.setPage(page);
-        
-    }    
+    };
 
 
 </script>
