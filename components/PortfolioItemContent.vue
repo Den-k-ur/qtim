@@ -2,32 +2,32 @@
     <div id="page">
         <div class="container">
             <header id="masthead" class="site-header">
-            <div class="site-branding">
-                <h1 class="site-title"><a href="index.html" rel="home">Moschino</a></h1>
-                <h2 class="site-description">Minimalist Portfolio HTML Template</h2>
-            </div>
-            <nav id="site-navigation" class="main-navigation">
-            <button class="menu-toggle">Menu</button>
-            <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
-            <div class="menu-menu-1-container">
-                <ul id="menu-menu-1" class="menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="shop.html">Shop</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="elements.html">Elements</a></li>
-                    <li><a href="#">Pages</a>
-                    <ul class="sub-menu">
-                        <li><a href="portfolio-item.html">Portfolio Item</a></li>
-                        <li><a href="blog-single.html">Blog Article</a></li>
-                        <li><a href="shop-single.html">Shop Item</a></li>
-                        <li><a href="portfolio-category.html">Portfolio Category</a></li>
-                    </ul>
-                    </li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-            </nav>
+                <div class="site-branding">
+                    <h1 class="site-title"><NuxtLink to="/" rel="home">Moschino</NuxtLink></h1>
+                    <h2 class="site-description">Minimalist Portfolio HTML Template</h2>
+                </div>
+                <nav id="site-navigation" class="main-navigation">
+                    <button class="menu-toggle">Menu</button>
+                    <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+                    <div class="menu-menu-1-container">
+                        <ul id="menu-menu-1" class="menu">
+                            <li><NuxtLink to="/">Home</NuxtLink></li>
+                            <li><NuxtLink to="/about">About</NuxtLink></li>
+                            <li><NuxtLink to="/shop">Shop</NuxtLink></li>
+                            <li><NuxtLink to="/blog">Blog</NuxtLink></li>
+                            <li><NuxtLink to="/elements">Elements</NuxtLink></li>
+                            <li><NuxtLink to="#">Pages</NuxtLink>
+                            <ul class="sub-menu">
+                                <li><NuxtLink to="/portfolio-item">Portfolio Item</NuxtLink></li>
+                                <li><NuxtLink to="/blog-single">Blog Article</NuxtLink></li>
+                                <li><NuxtLink to="/shop-single">Shop Item</NuxtLink></li>
+                                <li><NuxtLink to="/portfolio-category">Portfolio Category</NuxtLink></li>
+                            </ul>
+                            </li>
+                            <li><NuxtLink to="/contact">Contact</NuxtLink></li>
+                        </ul>
+                    </div>
+                </nav>
             </header>
             <!-- #masthead -->
             <div id="content" class="site-content">

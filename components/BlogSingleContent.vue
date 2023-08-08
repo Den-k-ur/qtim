@@ -3,113 +3,111 @@
         <div class="container">
             <header id="masthead" class="site-header">
             <div class="site-branding">
-                <h1 class="site-title"><a href="index.html" rel="home">Moschino</a></h1>
+                <h1 class="site-title"><NuxtLink to="/" rel="home">Moschino</NuxtLink></h1>
                 <h2 class="site-description">Minimalist Portfolio HTML Template</h2>
             </div>
             <nav id="site-navigation" class="main-navigation">
-            <button class="menu-toggle">Menu</button>
-            <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
-            <div class="menu-menu-1-container">
-                <ul id="menu-menu-1" class="menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="shop.html">Shop</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="elements.html">Elements</a></li>
-                    <li><a href="#">Pages</a>
-                    <ul class="sub-menu">
-                        <li><a href="portfolio-item.html">Portfolio Item</a></li>
-                        <li><a href="blog-single.html">Blog Article</a></li>
-                        <li><a href="shop-single.html">Shop Item</a></li>
-                        <li><a href="portfolio-category.html">Portfolio Category</a></li>
+                <button class="menu-toggle">Menu</button>
+                <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+                <div class="menu-menu-1-container">
+                    <ul id="menu-menu-1" class="menu">
+                        <li><NuxtLink to="/">Home</NuxtLink></li>
+                        <li><NuxtLink to="/about">About</NuxtLink></li>
+                        <li><NuxtLink to="/shop">Shop</NuxtLink></li>
+                        <li><NuxtLink to="/blog">Blog</NuxtLink></li>
+                        <li><NuxtLink to="/elements">Elements</NuxtLink></li>
+                        <li><NuxtLink to="#">Pages</NuxtLink>
+                        <ul class="sub-menu">
+                            <li><NuxtLink to="/portfolio-item">Portfolio Item</NuxtLink></li>
+                            <li><NuxtLink to="/blog-single">Blog Article</NuxtLink></li>
+                            <li><NuxtLink to="/shop-single">Shop Item</NuxtLink></li>
+                            <li><NuxtLink to="/portfolio-category">Portfolio Category</NuxtLink></li>
+                        </ul>
+                        </li>
+                        <li><NuxtLink to="/contact">Contact</NuxtLink></li>
                     </ul>
-                    </li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
+                </div>
             </nav>
             </header>
             <!-- #masthead -->
             <div id="content" class="site-content">
                 <div id="primary" class="content-area column two-thirds">
                     <main id="main" class="site-main" role="main">
-                    <article>
-                    <header class="entry-header">
-                    <h1 class="entry-title">Somewhere in time</h1>
-                    <div class="entry-meta">
-                            <span class="posted-on"><time class="entry-date published">April 6, 2016</time></span>						
-                            <span class="comments-link"><a href="#">Leave a comment</a></span>
+                        <article>
+                            <header class="entry-header">
+                                <h1 class="entry-title">{{ postInfo.title }}</h1>
+                                <div class="entry-meta">
+                                    <span class="posted-on"><time class="entry-date published">{{ new Date(postInfo.createdAt).toLocaleString('en-EN', {
+                                    year: 'numeric',
+                                    month: 'long',
+                                    day: 'numeric',
+                                }) }}</time></span>						
+                                    <span class="comments-link"><a href="#">Leave a comment</a></span>
+                                </div>
+                                <div class="entry-thumbnail">					
+                                    <img :src="postInfo.image" alt="preview image">
+                                </div>
+                            </header>
+                            <!-- .entry-header -->
+                            <div class="entry-summary">
+                                <p>
+                                    {{ postInfo.preview }}
+                                </p>
+                            </div>
+                            <div class="entry-content">
+                                <p>{{ postInfo.description }}</p>
+                            </div>
+                            <!-- .entry-content -->
+                            <footer class="entry-footer">
+                                <span class="cat-links">
+                                Posted in 
+                                <a href="#" rel="category tag">audio</a>, 
+                                <a href="#" rel="category tag">embed</a>, 
+                                <a href="#" rel="category tag">media</a>
+                                </span>
+                            </footer>
+                            <!-- .entry-footer -->
+                        </article>
+                        <!-- #post-## -->
+                        <nav class="navigation post-navigation" role="navigation">
+                            <h1 class="screen-reader-text">Post navigation</h1>
+                            <div class="nav-links">
+                                <div class="nav-previous">
+                                    <NuxtLink to="/blog" rel="prev"><span class="meta-nav">←</span> Thanks for watching!</NuxtLink>
+                                </div>
+                            </div>
+                            <!-- .nav-links -->
+                        </nav>
+                        <!-- .navigation -->
+                        <div id="comments" class="comments-area">
+                            <div id="respond" class="comment-respond">
+                                <h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/demo-moschino/embed-audio/#respond" style="display:none;">Cancel reply</a></small></h3>
+                                <form action="http://www.themepush.com/demo-moschino/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate>
+                                    <p class="comment-notes">
+                                        <span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span>
+                                    </p>
+                                    <p class="comment-form-comment">
+                                        <label for="comment">Comment</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" required></textarea>
+                                    </p>
+                                    <p class="comment-form-author">
+                                        <label for="author">Name <span class="required">*</span></label><input id="author" name="author" type="text" value="" size="30" aria-required="true" required>
+                                    </p>
+                                    <p class="comment-form-email">
+                                        <label for="email">Email <span class="required">*</span></label><input id="email" name="email" type="email" value="" size="30" aria-describedby="email-notes" aria-required="true" required>
+                                    </p>
+                                    <p class="comment-form-url">
+                                        <label for="url">Website</label><input id="url" name="url" type="url" value="" size="30">
+                                    </p>
+                                    <p class="form-submit">
+                                        <input name="submit" type="submit" id="submit" class="submit" value="Post Comment"><input type="hidden" name="comment_post_ID" value="90" id="comment_post_ID">
+                                        <input type="hidden" name="comment_parent" id="comment_parent" value="0">
+                                    </p>
+                                    <noscript>
+                                    </noscript>
+                                </form>
+                            </div>
+                            <!-- #respond -->
                         </div>
-                    <div class="entry-thumbnail">					
-                        <img src="http://s3.amazonaws.com/caymandemo/wp-content/uploads/sites/10/2015/09/30160348/sep4.jpg" alt="">
-                    </div>
-                    </header>
-                    <!-- .entry-header -->
-                    <div class="entry-content">
-                        <p>
-                            When Mary Lennox was sent to Manor to live with her uncle everybody said she was the most disagreeablelooking child ever seen. It was true, too. She had a little thin face and a little thin body, thin light hair and a sour expression.
-                        </p>
-                        <p>
-                            Her hair was yellow, and her face was yellow because she had been born in India and had always been ill in one way or another. Her father had held a position under the English Government and had always been busy and ill himself, and her mother had been a great beauty who cared only to go to parties and amuse herself with gay people. She had not wanted a little girl at all, and when Mary was born she handed her over to the care of an Ayah, who was made to understand that if she wished to please the Mem Sahib she must keep the child out of sight as much as possible.
-                        </p>
-                        <p>
-                            So when she was a sickly, fretful, ugly little baby she was kept out of the way, and when she became a sickly, fretful, toddling thing she was kept out of the way also. She never remembered seeing familiarly anything but the dark faces of her Ayah and the other native servants, and as they always obeyed her and gave her her own way in everything, because the Mem Sahib would be angry if she was disturbed by her crying, by the time she was six years old she was as tyrannical and selfish a little pig as ever lived.
-                        </p>
-                        <p>
-                            The young English governess who came to teach her to read and write disliked her so much that she gave up her place in three months, and when other governesses came to try to fill it they always went away in a shorter time than the first one. So if Mary had not chosen to really want to know how to read books she would never have learned her letters at all.
-                        </p>
-                    </div>
-                    <!-- .entry-content -->
-                    <footer class="entry-footer">
-                    <span class="cat-links">
-                    Posted in 
-                    <a href="#" rel="category tag">audio</a>, 
-                    <a href="#" rel="category tag">embed</a>, 
-                    <a href="#" rel="category tag">media</a>
-                    </span>
-                    </footer>
-                    <!-- .entry-footer -->
-                    </article>
-                    <!-- #post-## -->
-                    <nav class="navigation post-navigation" role="navigation">
-                    <h1 class="screen-reader-text">Post navigation</h1>
-                    <div class="nav-links">
-                        <div class="nav-previous">
-                            <a href="#" rel="prev"><span class="meta-nav">←</span> Thanks for watching!</a>
-                        </div>
-                    </div>
-                    <!-- .nav-links -->
-                    </nav>
-                    <!-- .navigation -->
-                    <div id="comments" class="comments-area">
-                        <div id="respond" class="comment-respond">
-                            <h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/demo-moschino/embed-audio/#respond" style="display:none;">Cancel reply</a></small></h3>
-                            <form action="http://www.themepush.com/demo-moschino/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate>
-                                <p class="comment-notes">
-                                    <span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span>
-                                </p>
-                                <p class="comment-form-comment">
-                                    <label for="comment">Comment</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" required></textarea>
-                                </p>
-                                <p class="comment-form-author">
-                                    <label for="author">Name <span class="required">*</span></label><input id="author" name="author" type="text" value="" size="30" aria-required="true" required>
-                                </p>
-                                <p class="comment-form-email">
-                                    <label for="email">Email <span class="required">*</span></label><input id="email" name="email" type="email" value="" size="30" aria-describedby="email-notes" aria-required="true" required>
-                                </p>
-                                <p class="comment-form-url">
-                                    <label for="url">Website</label><input id="url" name="url" type="url" value="" size="30">
-                                </p>
-                                <p class="form-submit">
-                                    <input name="submit" type="submit" id="submit" class="submit" value="Post Comment"><input type="hidden" name="comment_post_ID" value="90" id="comment_post_ID">
-                                    <input type="hidden" name="comment_parent" id="comment_parent" value="0">
-                                </p>
-                                <noscript>
-                                </noscript>
-                            </form>
-                        </div>
-                        <!-- #respond -->
-                    </div>
                     <!-- #comments -->
                     </main>
                     <!-- #main -->
@@ -165,7 +163,6 @@
                         <h4 class="widget-title">Follow us</h4>
                         <div class="textwidget">
                             <!-- Place this tag in your head or just before your close body tag. -->
-                            <script src="https://apis.google.com/js/platform.js" async="" defer="" gapi_processed="true"></script>
                             <!-- Place this tag where you want the widget to render. -->
                             <div id="___page_0" style="text-indent: 0px; margin: 0px; padding: 0px; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 300px; height: 377px; background: transparent;">
                                 <iframe frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 300px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 377px;" tabindex="0" vspace="0" width="100%" id="I0_1460806394603" name="I0_1460806394603" src="https://apis.google.com/u/0/_/widget/render/page?usegapi=1&amp;href=%2F%2Fplus.google.com%2Fu%2F0%2F110916582192388695332&amp;rel=publisher&amp;origin=http%3A%2F%2Fwww.themepush.com&amp;gsrc=3p&amp;ic=1&amp;jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en.5rbYCKK8ELg.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCNt4tfE4T2zmac5ke0V9FW49A3yCA#_methods=onPlusOne%2C_ready%2C_close%2C_open%2C_resizeMe%2C_renderstart%2Concircled%2Cdrefresh%2Cerefresh%2Conload&amp;id=I0_1460806394603&amp;parent=http%3A%2F%2Fwww.themepush.com&amp;pfname=&amp;rpctoken=19037393" data-gapiattached="true" title="+Badge">
@@ -194,5 +191,16 @@
 </template>
 
 <script setup lang="ts">
+    import { postDTO } from 'models/post.dto';
+import { usePostsStore } from '../store/posts';
+
+    const store = usePostsStore();
+
+    const route = useRoute()
     
+    const {data} = await useAsyncData('https://6082e3545dbd2c001757abf5.mockapi.io/qtim-test-work/posts/${id}', () => $fetch(`https://6082e3545dbd2c001757abf5.mockapi.io/qtim-test-work/posts/${route.params.id}`))
+    
+    store.setDetailPost(data.value as postDTO)
+    const postInfo = store.detailPostInfo; 
+
 </script>
