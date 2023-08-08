@@ -19,8 +19,8 @@
                             <li><NuxtLink to="#">Pages</NuxtLink>
                             <ul class="sub-menu">
                                 <li><NuxtLink to="/portfolio-item">Portfolio Item</NuxtLink></li>
-                                <li><NuxtLink to="/blog-single">Blog Article</NuxtLink></li>
-                                <li><NuxtLink to="/shop-single">Shop Item</NuxtLink></li>
+                                <li><NuxtLink to="/blog/1">Blog Article</NuxtLink></li>
+                                <li><NuxtLink to="/shop/shop-single">Shop Item</NuxtLink></li>
                                 <li><NuxtLink to="/portfolio-category">Portfolio Category</NuxtLink></li>
                             </ul>
                             </li>
@@ -41,13 +41,10 @@
                     <div class="entry-content">
                             
                         <!-- BEGIN MAP -->
-                        <p><script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script></p>
                         <div style='overflow:hidden;height:380px;width:100%;'>
                         <div id='gmap_canvas' style='height:380px;width:100%;'></div>
                         <div>embed google maps</div>
-                        <style>#gmap_canvas img{max-width:none!important;background:none!important}</style>
                         </div>
-                        <p><script type='text/javascript'>function init_map(){var myOptions = {zoom:10,center:new google.maps.LatLng(3.4000221,-76.387969),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(3.4000221,-76.387969)});infowindow = new google.maps.InfoWindow({content:'<strong>Jane Photography</strong><br />Florida Beach<br />'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script></p>
                         <!-- END MAP -->
                             
                         <div class="wpcmsdev-columns">
@@ -102,8 +99,6 @@
     </div>
 </template>
 
-<script>
-    export default {
-        
-    }
+<script setup lang="ts">
+  
 </script>

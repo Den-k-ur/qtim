@@ -22,8 +22,8 @@
                             <li><NuxtLink to="#">Pages</NuxtLink>
                             <ul class="sub-menu">
                                 <li><NuxtLink to="/portfolio-item">Portfolio Item</NuxtLink></li>
-                                <li><NuxtLink to="/blog-single">Blog Article</NuxtLink></li>
-                                <li><NuxtLink to="/shop-single">Shop Item</NuxtLink></li>
+                                <li><NuxtLink to="/blog/1">Blog Article</NuxtLink></li>
+                                <li><NuxtLink to="/shop/shop-single">Shop Item</NuxtLink></li>
                                 <li><NuxtLink to="/portfolio-category">Portfolio Category</NuxtLink></li>
                             </ul>
                             </li>
@@ -93,19 +93,19 @@
                         <h4 class="widget-title">Recent Posts</h4>
                         <ul>
                             <li>
-                                <a href="blog-single.html">Somewhere in time</a>
+                                <a href="#">Somewhere in time</a>
                             </li>
                             <li>
-                                <a href="blog-single.html">Thanks for watching!</a>
+                                <a href="#">Thanks for watching!</a>
                             </li>
                             <li>
-                                <a href="blog-single.html/">Who could have thought?</a>
+                                <a href="#/">Who could have thought?</a>
                             </li>
                             <li>
-                            <a href="blog-single.html">Text Alignement</a>
+                            <a href="#">Text Alignement</a>
                         </li>
                         <li>
-                            <a href="blog-single.html">HTML Tags and Formatting</a>
+                            <a href="#">HTML Tags and Formatting</a>
                         </li>
                     </ul>
                 </aside>
@@ -116,17 +116,6 @@
                         <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fwowthemesnet-562560840468823%2F&amp;tabs=timeline&amp;width=340&amp;height=380&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=false&amp;appId=365036103630036" width="340" height="380" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowtransparency="true">
                         </iframe>
                     </div>
-                </aside>
-                
-                <aside id="recent-comments-2" class="widget widget_recent_comments">
-                    <h4 class="widget-title">Recent Comments</h4>
-                    <ul id="recentcomments">
-                        <li class="recentcomments"><span>ThemePush</span> on <a href="blog-single.html">Male T-Shirt</a></li>
-                        <li class="recentcomments"><span>ThemePush</span> on <a href="blog-single.html">Male T-Shirt</a></li>
-                        <li class="recentcomments"><span><a href="#" rel="external nofollow" class="url">Mr WordPress</a></span> on <a href="blog-single.html">Thanks for watching!</a></li>
-                        <li class="recentcomments"><span>Maria</span> on <a href="blog-single.html">Gray Blouse</a></li>
-                        <li class="recentcomments"><span>Maria</span> on <a href="blog-single.html">Retro Dress</a></li>
-                    </ul>
                 </aside>
                 
                 <aside id="text-7" class="widget widget_text">
@@ -155,7 +144,7 @@
                 <span class="current" v-if="page === store.p">
                     {{ page }}
                 </span>
-                <span class="paginationButton" v-else @click="setCurrentPageAndRefresh(page)">
+                <span class="paginationButton" v-else @click="store.setPage(page)">
                     {{ page }}
                 </span>
             </span>
@@ -205,14 +194,8 @@
     );
 
     watch(data, (datav) => {store.posts = datav as postDTO[]; router.push('#masthead')});
+
     store.posts = data.value as postDTO[] ;
-    
-    
-    const setCurrentPageAndRefresh = (page: number) => {
-        store.setPage(page);
-    };
-
-
 
 
 </script>
