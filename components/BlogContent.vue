@@ -35,7 +35,7 @@
             <!-- #masthead -->
             <div id="content" class="site-content">
                 <div id="primary" class="content-area column two-thirds">
-                    <main id="main" class="site-main" role="main" v-for="post in posts">
+                    <main id="main" class="site-main" role="main" v-for="post in store.posts" :key="post.id">
                         <div class="grid bloggrid">
                         
                             <article>
@@ -70,7 +70,6 @@
                         </div>
                         <div class="clearfix">
                         </div>
-                    <nav class="pagination"></nav>
                     </main>
                     <!-- #main -->
                 </div>
@@ -78,58 +77,58 @@
                 
                 <div id="secondary" class="column third">
                     <div id="sidebar-1" class="widget-area" role="complementary">
-                    
+                        
                         <aside id="text-5" class="widget widget_text">
-                        <h4 class="widget-title">About Me</h4>
-                        <div class="textwidget">
-                            <p>
-                                <img src="http://www.themepush.com/demo-hypnosa/wp-content/uploads/sites/9/2015/09/avatar5.png" class="alignleft" style="width:80px;border-radius:50%;margin-bottom:0;"> I'm a professional photographer for 10 years. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+                            <h4 class="widget-title">About Me</h4>
+                            <div class="textwidget">
+                                <p>
+                                    <img src="http://www.themepush.com/demo-hypnosa/wp-content/uploads/sites/9/2015/09/avatar5.png" class="alignleft" style="width:80px;border-radius:50%;margin-bottom:0;"> I'm a professional photographer for 10 years. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
                             </p>
                         </div>
-                        </aside>
-                        
-                        <aside id="recent-posts-2" class="widget widget_recent_entries">
+                    </aside>
+                    
+                    <aside id="recent-posts-2" class="widget widget_recent_entries">
                         <h4 class="widget-title">Recent Posts</h4>
                         <ul>
                             <li>
-                            <a href="blog-single.html">Somewhere in time</a>
+                                <a href="blog-single.html">Somewhere in time</a>
                             </li>
                             <li>
-                            <a href="blog-single.html">Thanks for watching!</a>
+                                <a href="blog-single.html">Thanks for watching!</a>
                             </li>
                             <li>
-                            <a href="blog-single.html/">Who could have thought?</a>
+                                <a href="blog-single.html/">Who could have thought?</a>
                             </li>
                             <li>
                             <a href="blog-single.html">Text Alignement</a>
-                            </li>
-                            <li>
+                        </li>
+                        <li>
                             <a href="blog-single.html">HTML Tags and Formatting</a>
-                            </li>
-                        </ul>
-                        </aside>
-                        
-                        <aside id="text-6" class="widget widget_text">
-                        <h4 class="widget-title">Like us on Facebook</h4>
-                        <div class="textwidget">
-                            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fwowthemesnet-562560840468823%2F&amp;tabs=timeline&amp;width=340&amp;height=380&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=false&amp;appId=365036103630036" width="340" height="380" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowtransparency="true">
-                            </iframe>
-                        </div>
-                        </aside>
-                        
-                        <aside id="recent-comments-2" class="widget widget_recent_comments">
-                        <h4 class="widget-title">Recent Comments</h4>
-                        <ul id="recentcomments">
-                            <li class="recentcomments"><span>ThemePush</span> on <a href="blog-single.html">Male T-Shirt</a></li>
-                            <li class="recentcomments"><span>ThemePush</span> on <a href="blog-single.html">Male T-Shirt</a></li>
-                            <li class="recentcomments"><span><a href="#" rel="external nofollow" class="url">Mr WordPress</a></span> on <a href="blog-single.html">Thanks for watching!</a></li>
-                            <li class="recentcomments"><span>Maria</span> on <a href="blog-single.html">Gray Blouse</a></li>
-                            <li class="recentcomments"><span>Maria</span> on <a href="blog-single.html">Retro Dress</a></li>
-                        </ul>
-                        </aside>
-                        
-                        <aside id="text-7" class="widget widget_text">
-                        <h4 class="widget-title">Follow us</h4>
+                        </li>
+                    </ul>
+                </aside>
+                
+                <aside id="text-6" class="widget widget_text">
+                    <h4 class="widget-title">Like us on Facebook</h4>
+                    <div class="textwidget">
+                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fwowthemesnet-562560840468823%2F&amp;tabs=timeline&amp;width=340&amp;height=380&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=false&amp;appId=365036103630036" width="340" height="380" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowtransparency="true">
+                        </iframe>
+                    </div>
+                </aside>
+                
+                <aside id="recent-comments-2" class="widget widget_recent_comments">
+                    <h4 class="widget-title">Recent Comments</h4>
+                    <ul id="recentcomments">
+                        <li class="recentcomments"><span>ThemePush</span> on <a href="blog-single.html">Male T-Shirt</a></li>
+                        <li class="recentcomments"><span>ThemePush</span> on <a href="blog-single.html">Male T-Shirt</a></li>
+                        <li class="recentcomments"><span><a href="#" rel="external nofollow" class="url">Mr WordPress</a></span> on <a href="blog-single.html">Thanks for watching!</a></li>
+                        <li class="recentcomments"><span>Maria</span> on <a href="blog-single.html">Gray Blouse</a></li>
+                        <li class="recentcomments"><span>Maria</span> on <a href="blog-single.html">Retro Dress</a></li>
+                    </ul>
+                </aside>
+                
+                <aside id="text-7" class="widget widget_text">
+                    <h4 class="widget-title">Follow us</h4>
                         <div class="textwidget">
                             <!-- Place this tag in your head or just before your close body tag. -->
                             <!-- Place this tag where you want the widget to render. -->
@@ -138,15 +137,31 @@
                                 </iframe>
                             </div>
                         </div>
-                        </aside>
-                        
-                    </div>
-                    <!-- .widget-area -->
+                    </aside>
+                    
                 </div>
-                <!-- #secondary -->
+                <!-- .widget-area -->
             </div>
-            <!-- #content -->
+            <!-- #secondary -->
         </div>
+        <!-- #content -->
+        <nav class="pagination">
+            <span class="paginationButton" @click="store.decrementPage">
+               &lt;&lt; prev
+            </span>
+            <span v-for="page in maxPages" :key="page">
+                <span class="current" v-if="page === store.p">
+                    {{ page }}
+                </span>
+                <span class="paginationButton" v-else @click="setCurrentPageAndRefresh(page)">
+                    {{ page }}
+                </span>
+            </span>
+            <span class="paginationButton" @click="store.incrementPage">
+                Next >>
+            </span>
+        </nav>
+    </div>
         <!-- .container -->
         <footer id="colophon" class="site-footer">
         <div class="container">
@@ -163,14 +178,37 @@
 <script setup lang="ts">
     import { postDTO } from 'models/post.dto';
     import { usePostsStore } from '../store/posts';
+    import { storeToRefs } from 'pinia';
 
 
     const store = usePostsStore();
+    const {p} = storeToRefs(store);
 
-    const { data } = await useFetch(`https://6082e3545dbd2c001757abf5.mockapi.io/qtim-test-work/posts?p=${store.p}&l=10`)
+
+    const router = useRouter();
+    const currentPage = p;
         
-    store.setPosts(data.value as postDTO[])
+    const allPagePosts = await $fetch(`https://6082e3545dbd2c001757abf5.mockapi.io/qtim-test-work/posts`);
+    store.calculateMaxPages(allPagePosts as postDTO[], 10);
+    const maxPages = store.maxPages;
+       
+
+
+    const { data } = await useAsyncData(`https://6082e3545dbd2c001757abf5.mockapi.io/qtim-test-work/posts?l=10`, () => $fetch(`https://6082e3545dbd2c001757abf5.mockapi.io/qtim-test-work/posts`, {
+        params: {
+        p: currentPage.value,
+        l: 10
+    }}),
+    {watch: [currentPage]}
+    );
+
+    watch(data, (datav) => {store.posts = datav as postDTO[]; router.push('#masthead')});
+    store.posts = data.value as postDTO[] ;
     
-    const posts = store.posts
+    
+    const setCurrentPageAndRefresh = (page: number) => {
+        store.setPage(page);
+    };
+
 
 </script>
